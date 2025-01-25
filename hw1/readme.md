@@ -43,6 +43,14 @@ is made that adds some content to that file. If that commit is reverted using `g
 a new commit will be made that deletes all the contents from the file, so that the file
 is empty again.
 
+### Part 4
+
+| Command | Affects Commit History? | Affects Staging Area? | Affects Working Directory? | Typical Use Case |
+| ------- | ----------------------- | --------------------- | -------------------------- | --------------- |
+| `git reset` | Y | Y | Y | Removing a commit from the history. |
+| `git restore` | N | Y | Y | Restoring an unstaged or staged (with `--staged`) file to the state it is at `HEAD` |
+| `git rm` | N | Y | Y | Removing a file from the staging area and from the working directory. |
+
 ## Problem 4 - Python & NumPy
 
 ## Problem 5 - Polishing a Repo
