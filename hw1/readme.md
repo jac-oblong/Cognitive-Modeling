@@ -53,4 +53,7 @@ is empty again.
 
 ## Problem 4 - Python & NumPy
 
+The python script can be found in the GitHub repo at `hw1/pi.py`. By default, it runs
+the estimation of pi for multiple different numbers.
+
 ## Problem 5 - Polishing a Repo
