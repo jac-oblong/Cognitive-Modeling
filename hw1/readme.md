@@ -46,6 +46,18 @@ This is FALSE. While it is true that the .gitignore file specifies files that sh
 
 ## Problem 2 - Inverse vs Forward
 
+### Inverse:
+
+#### 1.
+#### 2. 
+#### 3.
+
+### Forward:
+
+#### 1.
+#### 2. 
+#### 3.
+
 ## Problem 3 - Git & GitHub
 
 ## Problem 4 - Python & NumPy
