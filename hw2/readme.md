@@ -103,6 +103,69 @@ So the transformation that needs to be applied is $\sqrt{5}\cdot X + 3$
 
 ## Problem 5 - Murder Mystery Revised
 
+A teacher is picking students' names from a hat. There are five students: Bob, Brandon, Billy,
+Bart, and Ben. There are two hats to choose from. The first hat (hat A) has the names Bob, 
+Brandon, Billy, and Billy. The second hat (hat B) has the names Bob, Brandon, Bart, Bart, and Ben.
+The teacher will choose the hat to pull from at random, so the probability of either hat being 
+selected is 0.5. The probabilities are shown in the tables below.
+
+### Probability of choosing each student for Hat A -- $p(Student | A)$
+
+| Student | Probability |
+| :------ | ----------: |
+| Bob     |        0.25 |
+| Brandon |        0.25 |
+| Billy   |        0.50 |
+| Bart    |           0 |
+| Ben     |           0 |
+
+### Probability of choosing each student for Hat B -- $p(Student | B)$
+
+| Student | Probability |
+| :------ | ----------: |
+| Bob     |         0.2 |
+| Brandon |         0.2 |
+| Billy   |           0 |
+| Bart    |         0.4 |
+| Ben     |         0.2 |
+
+### Probability of choosing each student -- $p(Student)$
+
+This is calculated as $p(A)\cdot p(Student | A) + p(B)\cdot p(Student | B)$
+
+| Student | Probability |
+| :------ | ----------: |
+| Bob     |       0.225 |
+| Brandon |       0.225 |
+| Billy   |       0.250 |
+| Bart    |       0.200 |
+| Ben     |       0.100 |
+
+### Probability of each event -- $p(Hat, Student)$
+
+This is calculated as $p(Hat)\cdot p(Student)$
+
+|         | Hat A | Hat B |
+| Bob     | 0.125 |   0.1 |
+| Brandon | 0.125 |   0.1 |
+| Billy   | 0.250 |     0 |
+| Bart    |     0 |   0.2 |
+| Ben     |     0 |   0.1 |
+
+The `murder_myster_revised.py` script contains the code for simulating this story. The results
+have been copied below.
+
+|         |  Hat A |  Hat B |
+| Bob     | 0.1224 | 0.0998 |
+| Brandon | 0.1270 | 0.0941 |
+| Billy   | 0.2535 | 0.0000 |
+| Bart    | 0.0000 | 0.2004 |
+| Ben     | 0.0000 | 0.1028 |
+
+As can be seen in the table, the simulated probabilities largely match the calculated ones.
+Running only 1000 simulation produces results that are not too terrible, but running with
+10,000 simulation (as was done for the table above) or more will produce much better results.
+
 ## Problem 6 - Priors, Posteriors, Sensitivity, Specificity
 
 ## Problem 7 - AI-Assisted Programming
