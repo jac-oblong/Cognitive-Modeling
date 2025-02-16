@@ -40,6 +40,25 @@
 
 ### 1. $Var[X] = E[X^2] - E[X]^2$
 
+We know that the variance of a random variable, $X$, is
+
+$$Var[X] = E[(X - E[X])^2]$$
+
+This can be expanded to be
+
+$$Var[X] = E[(X - E[X]) \cdot (X - E[X])]$$
+$$Var[X] = E[X^2 - 2XE[X] + E[X]^2]$$
+
+Since, $E[X + Y] \equiv E[X] + E[Y]$, we have
+
+$$Var[X] = E[X^2] - E[2XE[X]] + E[X]^2$$
+
+Since $E[X]$ is a constant, and $E[c\cdot X] \equiv c\cdot E[X]$, where $c$ is a constant, we have
+
+$$Var[X] = E[X^2] - 2E[X]E[X] + E[X]^2$$
+$$Var[X] = E[X^2] - 2E[X]^2 + E[X]^2$$
+$$Var[X] = E[X^2] - E[X]^2$$
+
 ### 2. $Var[\alpha X + \beta] = \alpha^2 Var[X]$
 
 ### 3. $X\sim Normal(\mu=0,\sigma=1) \rightarrow \overline{X}\sim Normal(\mu=3,\sigma=5)$
