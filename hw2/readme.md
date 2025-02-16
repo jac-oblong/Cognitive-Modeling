@@ -4,7 +4,7 @@
 
 ### 1. A random variable is discrete if its support is countable and there exists an associated probability density function (pdf)
 
-**FALSE**. A random variable is discrete if its support is countable and there exists an associated probability mass function (pmf) ($p: R\rightarrow[0,1]).
+**FALSE**. A random variable is discrete if its support is countable and there exists an associated probability mass function (pmf) ($p: R\rightarrow[0,1]$).
 
 ### 2. Probability mass functions have a lower bound of 0 and an upper bound of 1
 
