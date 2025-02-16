@@ -61,7 +61,43 @@ $$Var[X] = E[X^2] - E[X]^2$$
 
 ### 2. $Var[\alpha X + \beta] = \alpha^2 Var[X]$
 
+We know that the variance of a random variable, $X$, is
+
+$$Var[X] = E[(X - E[X])^2]$$
+
+If we replace $X$ with $\alpha X + \beta$, we have
+
+$$Var[X] = E[((\alpha X + \beta) - E[\alpha X + \beta])^2]$$
+
+We know that $E[\alpha X + \beta] \equiv \alpha E[X] + \beta$, so
+
+$$Var[X] = E[((\alpha X + \beta) - (\alpha E[X] + \beta))^2]$$
+$$Var[X] = E[(\alpha X + \beta - \alpha E[X] - \beta)^2]$$
+$$Var[X] = E[(\alpha X - \alpha E[X])^2]$$
+
+The $\alpha$ can be factored out
+
+$$Var[X] = E[(\alpha\cdot(X - E[X]))^2]$$
+$$Var[X] = E[\alpha^2\cdot(X - E[X])^2]$$
+
+Since $\alpha$ is a constant, and $E[c\cdot X] \equiv c\cdot E[X]$, where $c$ is a constant, we have
+
+$$Var[X] = \alpha^2\cdot E[(X - E[X])^2]$$
+$$Var[X] = \alpha^2\cdot Var[X]$$
+
 ### 3. $X\sim Normal(\mu=0,\sigma=1) \rightarrow \overline{X}\sim Normal(\mu=3,\sigma=5)$
+
+Say that $\overline{X} = \alpha X + \beta$, then 
+
+$$E[\overline{X}] = \alpha E[X] + \beta$$
+$$\sqrt{Var[\overline{X}]} = \alpha^2\sqrt{Var[X]}$$
+
+From this we have that
+
+$$\alpha = \sqrt{5}$$
+$$\beta = 3$$
+
+So the transformation that needs to be applied is $\sqrt{5}\cdot X + 3$
 
 ## Problem 4 - Simple Bayes' Rule
 
