@@ -169,3 +169,13 @@ Running only 1000 simulation produces results that are not too terrible, but run
 ## Problem 6 - Priors, Posteriors, Sensitivity, Specificity
 
 ## Problem 7 - AI-Assisted Programming
+
+The `ai_assisted_programming.py` file contains the code for this problem.
+
+An interesting note to make about the ChatGPT version of the function is that, despite
+specifying that the third parameter should be `Sigma`, it still interpreted it as the
+covariance matrix, `Cov`.
+
+ChatGPT's implementation of the multivariate normal density function closely matches
+the output of SciPy's version. The only difference between the two is for a full
+covariance Gaussian, and even that is a slight difference after 15 decimal places.
