@@ -26,6 +26,35 @@
 
 ## Problem 3 - Prior and Posterior Variance
 
+$$Var[\theta] = E[Var[\theta | y]] + Var[E[\theta | y]]$$
+
+First, we know that 
+
+$$Var[X] = E[X^2] - E[X]^2$$
+$$Var[X|Y] = E[X^2 | Y] - E[X | Y]^2$$
+$$E[X + Y] = E[X] + E[Y]$$
+$$E[X] = E[E[X | Y]]$$
+
+If we expand the right-hand side
+
+$$Var[\theta] = E[Var[\theta | y]] + Var[E[\theta | y]]$$
+$$Var[\theta] = E[E[\theta^2 | y] - E[\theta | y]^2] + Var[E[\theta | y]]$$
+$$Var[\theta] = E[E[\theta^2 | y]] - E[E[\theta | y]^2] + Var[E[\theta | y]]$$
+$$Var[\theta] = E[\theta^2] - E[E[\theta | y]^2] + Var[E[\theta | y]]$$
+
+Focusing on $E[\theta^2]$, if we rearrange the equation for $Var[X]$ we have that
+$E[X^2] = Var[X] + E[X]^2$, so
+
+$$Var[\theta] = Var[\theta] + E[\theta]^2 - E[E[\theta | y]^2] + Var[E[\theta | y]]$$
+
+Now focusing on $E[E[\theta | y]^2]$, if we rearrange the equation for $Var[X|Y]$ we have that
+$E[E[X | Y]^2] = E[E[X^2 | Y] - Var[X | Y]]$, so
+
+$$Var[\theta] = Var[\theta] + E[\theta]^2 - E[E[\theta^2 | y] - Var[\theta | y]] + Var[E[\theta | y]]$$
+$$Var[\theta] = Var[\theta] + E[\theta]^2 - E[E[\theta^2 | y]] - E[Var[\theta | y]] + Var[E[\theta | y]]$$
+$$Var[\theta] = Var[\theta] + E[\theta]^2 - E[\theta^2] - E[Var[\theta | y]] + Var[E[\theta | y]]$$
+$$Var[\theta] = Var[\theta] - E[Var[\theta | y]] + Var[E[\theta | y]]$$
+
 ## Problem 4 - Normal-Normal Model
 
 ## Problem 5 - Simple Bayesian Regression with Stan
