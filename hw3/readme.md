@@ -70,3 +70,5 @@ $$Var[\theta] = E[Var[\theta | y]] + Var[E[\theta | y]]$$
 The anser to this problem can be found in [problem5.ipynb](./problem5.ipynb)
 
 ## Problem 6 - Estimating the Drift-Diffusion Model
+
+The anser to this problem can be found in [problem6.ipynb](./problem6.ipynb)
