@@ -30,10 +30,14 @@ $$Var[\theta] = E[Var[\theta | y]] + Var[E[\theta | y]]$$
 
 First, we know that 
 
-$$Var[X] = E[X^2] - E[X]^2$$
-$$Var[X|Y] = E[X^2 | Y] - E[X | Y]^2$$
-$$E[X + Y] = E[X] + E[Y]$$
-$$E[X] = E[E[X | Y]]$$
+$$
+\begin{align}
+    \nonumber Var[X] &= E[X^2] - E[X]^2 \\
+    \nonumber Var[X|Y] &= E[X^2 | Y] - E[X | Y]^2 \\
+    \nonumber E[X + Y] &= E[X] + E[Y] \\
+    \nonumber E[X] &= E[E[X | Y]] \\
+\end{align}
+$$
 
 Let us start with the definition of $Var[X]$
 
