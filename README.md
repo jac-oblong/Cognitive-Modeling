@@ -10,3 +10,5 @@ to predict actions or tendencies as well as to better understand the processes
 being modeled.
 
 ## [Homework 1](./hw1)
+## [Homework 2](./hw2)
+## [Homework 3](./hw3)
