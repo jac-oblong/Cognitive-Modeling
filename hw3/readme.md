@@ -50,6 +50,8 @@ The answer to this problem can be found in [problem2.ipynb](./problem2.ipynb)
 
 ## Problem 4 - Normal-Normal Model
 
+The answer to this problem can be found in [problem4.ipynb](./problem4.ipynb)
+
 ## Problem 5 - Simple Bayesian Regression with Stan
 
 ## Problem 6 - Estimating the Drift-Diffusion Model
