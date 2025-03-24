@@ -44,6 +44,8 @@ FALSE. The ESS differs from the total number of samples because it takes time fo
 
 ## Problem 2 - Diffusion Model Explorations
 
+The answer to this problem can be found in [problem2.ipynb](./problem2.ipynb)
+
 ## Problem 3 - Prior and Posterior Variance
 
 ## Problem 4 - Normal-Normal Model
