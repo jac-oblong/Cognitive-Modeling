@@ -24,6 +24,8 @@
 
 ## Problem 3 - Multiple Regression
 
+The answer to this problem can be found in [problem3.ipynb](./problem3.ipynb).
+
 ## Problem 4 - Predictive Distribution
 
 ## Problem 5 - Reflection
