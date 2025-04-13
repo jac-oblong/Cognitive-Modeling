@@ -28,6 +28,8 @@ The answer to this problem can be found in [problem3.ipynb](./problem3.ipynb).
 
 ## Problem 4 - Predictive Distribution
 
+The answer to this problem can be found in [problem4.ipynb](./problem4.ipynb).
+
 ## Problem 5 - Reflection
 
 ## Problem 6 - Project Pre-Study
