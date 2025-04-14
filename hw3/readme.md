@@ -48,10 +48,51 @@ The answer to this problem can be found in [problem2.ipynb](./problem2.ipynb)
 
 ## Problem 3 - Prior and Posterior Variance
 
+$$Var[\theta] = E[Var[\theta | y]] + Var[E[\theta | y]]$$
+
+First, we know that 
+
+$$
+\begin{align}
+    \nonumber Var[X] &= E[X^2] - E[X]^2 \\
+    \nonumber Var[X|Y] &= E[X^2 | Y] - E[X | Y]^2 \\
+    \nonumber E[X + Y] &= E[X] + E[Y] \\
+    \nonumber E[X] &= E[E[X | Y]] \\
+\end{align}
+$$
+
+Let us start with the definition of $Var[X]$
+
+$$Var[\theta] = E[\theta^2] - E[\theta]^2$$
+
+We know that $E[X^2] = E[E[X^2 | Y]]$, so
+
+$$Var[\theta] = E[E[\theta^2 | y]] - E[\theta]^2$$
+
+From the equation for $Var[X | Y]$, we have that $E[X^2 | Y] = Var[X | Y] + E[X | Y]^2$, so
+
+$$Var[\theta] = E[Var[\theta | y] + E[\theta | y]^2] - E[\theta]^2$$
+
+From the equation for $E[X + Y]$, we have
+
+$$Var[\theta] = E[Var[\theta | y]] + E[E[\theta | y]^2]] - E[\theta]^2$$
+
+Again, $E[X^2] = E[E[X^2 | Y]]$, so
+
+$$Var[\theta] = E[Var[\theta | y]] + E[E[\theta | y]^2]] - E[E[\theta | y]]^2$$
+
+Finally, using the equation for $Var[X]$, we have
+
+$$Var[\theta] = E[Var[\theta | y]] + Var[E[\theta | y]]$$
+
 ## Problem 4 - Normal-Normal Model
 
 The answer to this problem can be found in [problem4.ipynb](./problem4.ipynb)
 
 ## Problem 5 - Simple Bayesian Regression with Stan
 
+The anser to this problem can be found in [problem5.ipynb](./problem5.ipynb)
+
 ## Problem 6 - Estimating the Drift-Diffusion Model
+
+The anser to this problem can be found in [problem6.ipynb](./problem6.ipynb)
