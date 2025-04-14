@@ -29,3 +29,7 @@
 ## Problem 5 - Reflection
 
 ## Problem 6 - Project Pre-Study
+
+We are planning on modeling the reaction of cone cells in the eye to light stimuli. When hit by a light wave within their range, cone cells will activate, and the brain interprets these signals as sight. Certain cells respond to certain ranges in frequency, and so in order to perceive the "true color" (as much as is possible, as color is just an abstract thing), the brain compares the levels of the cell types and perceives a multitude of responses as a color. A great example to visualize this is purple. There is no such thing as "purple" light. Instead, enough cone cells receive a blue frequency and enough receive a red frequency, with a lack of green frequencies, and together, this is perceived as purple. We intend to model this cognitive process, where, given activation levels of cone cells, the model will predict which light frequency was present. 
+
+We have light frequency, cone activations, and perceived colors to work with. 
