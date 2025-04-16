@@ -46,6 +46,8 @@ FALSE. Both information criteria and cross-validation methods are approximations
 
 ## Problem 2 - Simple Multinomial Processing Trees (MPTs)
 
+The answer to this problem can be found in [problem2.ipynb](./problem2.ipynb).
+
 ## Problem 3 - Multiple Regression
 
 ## Problem 4 - Predictive Distribution
