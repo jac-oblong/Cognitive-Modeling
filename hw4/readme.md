@@ -8,11 +8,11 @@ TRUE. This is still less demanding, however, than something like Leave-one-out c
 
 ### Bayes factors (BFs) are *relative measures*, that is, they cannot differentiate between "equally good" and "equally bad" models.
 
-TRUE.
+TRUE. Bayes factors simply compare the marginal likelihoods of models, they don't offer any further insight to general model performance.
 
 ### Marginal likelihoods and, by extension, Bayes factors (BFs) cannot be used to compare models with different likelihoods.
 
-FALSE. Marginal likelihoods just look at the probability of obtaining the data, and so they, and by extension, Bayes factors, can be used to compare all sorts of models with regards to how accurately they represent the data.
+FALSE. Marginal likelihoods just look at the probability of obtaining the data given the model, and so they, and by extension, Bayes factors, can be used to compare all sorts of models with regard to how accurately they represent the data.
 
 ### Both the Binomial and the Dirichlet distribution can be formulated as special cases of the Multinomial distribution.
 
@@ -20,23 +20,25 @@ FALSE. The Binomial is a special case of the Multinomial distribution, but the D
 
 ### Bayesian leave-one-out cross-validation (LOO-CV) relies on the posterior predictive distribution of left-out data points.
 
-TRUE.
+TRUE. For each left out data point, the posterior predictive distribution is used.
 
 ### The Akaike Information Criterion (AIC) penalizes model complexity indirectly through the variance of a model's marginal likelihood.
 
-FALSE. Bayes factors do this to measure generative performance. AIC penalizes model complexity directly by applying a penalty for the number of parameters in the model.
+FALSE. Bayes factors do this in order to measure generative performance. AIC penalizes model complexity directly by applying a penalty for the number of parameters in the model (with more parameters giving a higher penalty and more paramters being one simple way to measure model complexity).
 
 ### The log-predictive density (LPD) is a relative metric of model complexity.
 
-FALSE. LPD is a reletive metric of predictive performance. It doesn't depend on complexity directly, rather, model predictive performance.
+FALSE. LPD is a reletive metric of predictive performance. It doesn't depend on complexity directly, rather, it depends on the model's predictive performance.
 
 ### The LPD can be approximated by evaluating the likelihood of each posterior draw (e.g., as provided by an MCMC sampler) and taking the average of all resulting likelihood values.
 
-TRUE.
+TRUE. A Monte Carlo estimate can be used to approximate the LPD as described in the statement.
 
 ### Bayes factors do not depend on the prior odds, that is, the ratio of prior model probabilities $p(M_1)/p(M_2)$.
 
-TRUE.
+TRUE. Bayes factors compare the marginal likelihoods of the models. They are, however, proportional to the posterior odds with the scale factor being the prior odds:
+
+$\frac{p(y|M_1)}{p(y|M_2)} * \frac{p(M_1)}{p(M_2)} = \frac{p(M_1|y)}{p(M_2|y)}$
 
 ### You should always prefer information criteria to cross-validation in terms of estimating predictive performance.
 
