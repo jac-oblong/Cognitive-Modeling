@@ -50,15 +50,42 @@ The answer to this problem can be found in [problem2.ipynb](./problem2.ipynb).
 
 ## Problem 3 - Multiple Regression
 
+The answer to this problem can be found in [problem3.ipynb](./problem3.ipynb).
+
 ## Problem 4 - Predictive Distribution
+
+The answer to this problem can be found in [problem4.ipynb](./problem4.ipynb).
 
 ## Problem 5 - Reflection
 
+One take-away is how important statistics is in the modern age. So many different
+disciplines utilize predictive models whether they realize it or not. Some examples
+include medicine, weather, stock markets, and even traffic patterns. Not all of
+them utilize Bayesian models, but they do utilize previous observations to predict
+new data, which is fundamentally a statistical problem.
 
+Another take-away is the importance of validating the results of models. This is
+especially important because of how many different ways there are to validate them
+and also because of how complex they are.
 
-Continuing off of that, another key takeaway is the difference between generative and predictive performance. Models are often very specialized (or, at least, it is much harder to make a high-performing general model), and so when comparing models for selection, it's important to know what type of behavior you are looking to get from it. Thus, when evaluating model performance, first decide whether it is more useful to test generative performance, predictive performance, or both. Do you want the model to reproduce the data or predict new data? From there, you can further decide how best to evaluate that type of performance.
+Continuing off of that, another key takeaway is the difference between generative and
+predictive performance. Models are often very specialized (or, at least, it is much harder
+to make a high-performing general model), and so when comparing models for selection,
+it's important to know what type of behavior you are looking to get from it.
+Thus, when evaluating model performance, first decide whether it is more useful to test
+generative performance, predictive performance, or both. Do you want the model to reproduce
+the data or predict new data? From there, you can further decide how best to evaluate that type of performance.
 
-Finally, going back to something from the start of the semester that would be useful even if we never touch statistical modeling again is the idea of the replication crisis in psychology and the related fields. Especially given the state of the news today (at least in America, not sure what is it like elsewhere) where getting clicks and making money is much more important than providing informative, non-biased news, it is very common to see all sorts of headlines that are either an exaggeration of the truth or not even slightly true. This would be especially present if there is some sort of "scientific/research study" that they are getting their source from, but made no effort to check the validity of the study. Add into this AI-generated information and the replication crisis and it can be very difficult to tell what is true, solid information or not. Therefore, we must be cognizant of this issue when gathering and spreading information on and from the internet.
+Finally, going back to something from the start of the semester that would be useful even
+if we never touch statistical modeling again is the idea of the replication crisis in psychology
+and the related fields. Especially given the state of the news today 
+(at least in America, not sure what is it like elsewhere) where getting clicks and making money
+is much more important than providing informative, non-biased news,
+it is very common to see all sorts of headlines that are either an exaggeration of the truth or not even slightly true.
+This would be especially present if there is some sort of "scientific/research study"
+that they are getting their source from, but made no effort to check the validity of the study.
+Add into this AI-generated information and the replication crisis and it can be very difficult to tell what is true,
+solid information or not. Therefore, we must be cognizant of this issue when gathering and spreading information on and from the internet.
 
 ## Problem 6 - Project Pre-Study
 
