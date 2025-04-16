@@ -4,13 +4,21 @@
 
 ### Direct $K$-fold cross-validation requires $K$ model re-fits, which may be computationally demanding, especially when inverse inference is costly
 
+TRUE
+
 ### Bayes factors (BFs) are *relative measures*, that is, they cannot differentiate between "equally good" and "equally bad" models.
+
+TRUE
 
 ### Marginal likelihoods and, by extension, Bayes factors (BFs) cannot be used to compare models with different likelihoods.
 
+FALSE.
+
 ### Both the Binomial and the Dirichlet distribution can be formulated as special cases of the Multinomial distribution.
 
-### Bayesian leav-one-out cross-validation (LOO-CV) relies on the posterior predictive distribution of left-out data points.
+FALSE. The Binomial is a special case of the Multinomial distribution, but the Dirichlet distribution is instead the multivariate extension of the Beta distribution.
+
+### Bayesian leave-one-out cross-validation (LOO-CV) relies on the posterior predictive distribution of left-out data points.
 
 ### The Akaike Information Criterion (AIC) penalizes model complexity indirectly through the variance of a model's marginal likelihood.
 
