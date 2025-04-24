@@ -6,6 +6,21 @@ import numpy as np
 from enum import IntEnum
 
 
+GREEN_MU = 530
+GREEN_SIGMA = 50
+PERCENT_GREEN = 0.65
+
+RED_MU = 600
+RED_SIGMA = 50
+PERCENT_RED = 0.33
+
+BLUE_MU = 400
+BLUE_SIGMA = 50
+PERCENT_BLUE = 0.02
+
+assert(PERCENT_GREEN + PERCENT_RED + PERCENT_BLUE == 1)
+
+
 class ConeCell:
     """
     Simulates a cone cell that activates between lower and upper frequency
