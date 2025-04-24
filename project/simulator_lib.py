@@ -5,29 +5,65 @@ Holds all classes and generating functions used by the simulator and model
 import numpy as np
 from enum import IntEnum
 
+# Peak (mu) values vary person to person,
+#   use a uniform distribution to get a mu for a particular person
+#   (or use the standard (mean of high and low))
 
-GREEN_MU = 530
+# M (Medium - green) cone cells: 534-545 nm peak
+GREEN_MU_LOWER = 534
+GREEN_MU_UPPER = 545
+GREEN_MU_STANDARD = 540
 GREEN_SIGMA = 50
-PERCENT_GREEN = 0.65
+PERCENT_GREEN = 0.33
 
-RED_MU = 600
+# L (Long - red) cone cells: 564-580 nm peak
+RED_MU_LOWER = 564
+RED_MU_UPPER = 580
+RED_MU_STANDARD = 573
 RED_SIGMA = 50
-PERCENT_RED = 0.33
+PERCENT_RED = 0.65
 
-BLUE_MU = 400
+# S (Short - blue) cone cells: 420-440 nm peak
+BLUE_MU_LOWER = 420
+BLUE_MU_UPPER = 440
+BLUE_MU_STANDARD = 430
 BLUE_SIGMA = 50
 PERCENT_BLUE = 0.02
 
+# colorblind individuals (dichromatic)
+RED_GREEN_MU = (RED_MU_STANDARD + GREEN_MU_STANDARD) / 2
+RED_GREEN_SIGMA = 70
+
+# 4th celled individuals (tetrachromatic)
+TETRA_MU_LOWER = 550
+TETRA_MU_UPPER = 560
+TETRA_MU_STANDARD = 555
+TETRA_SIGMA = 50
+# was unable to find statistical breakdown, estimation based on biological reasoning for tetrachromacy
+# (father's M(green) cone shifts toward L(red), where mother's stays, so child gets both (i.e. half of M cones become PRIME cones))
+TETRA_RED = PERCENT_RED
+TETRA_GREEN = 0.5 * PERCENT_GREEN
+TETRA_PRIME = TETRA_GREEN
+TETRA_BLUE = PERCENT_BLUE
+
 assert(PERCENT_GREEN + PERCENT_RED + PERCENT_BLUE == 1)
+assert(TETRA_GREEN + TETRA_RED + TETRA_BLUE + TETRA_PRIME == 1)
 
 
 class ConeCell:
     """
     Simulates a cone cell that activates between lower and upper frequency
     """
-    def __init__(self, lower_frequency: float, upper_frequency: float):
-        self.lower_frequency = lower_frequency
-        self.upper_frequency = upper_frequency
+    def __init__(self, lower_frequency: float, upper_frequency: float, living: bool=True):
+        self.lower_frequency = lower_frequency  # lowest frequency of light that activates this cell
+        self.upper_frequency = upper_frequency  # highest frequency of light that actvates this cell
+        self.living = living                    # if the cell is alive (i.e. can activate)
+
+    def kill_cell(self):
+        """
+        Kills the cell by setting living to false, cell will no longer activate
+        """
+        self.living = False
 
     def plot_range(self, axis):
         axis.plot()
@@ -45,12 +81,13 @@ class Color(IntEnum):
     RED = 5
 
 
-def generate_cone_cell(mu: float, sigma: float) -> ConeCell:
+def generate_cone_cell(mu: float, sigma: float, chance_dead: float=0) -> ConeCell:
     """
     Generates a single cone cell
 
     :param mu: mean of normal distribution to sample from
     :param sigma: standard deviation of normal distribution to sample from
+    :param chance_dead: probability [0, 1] the generated cell is dead on creation
     :return: the generated cone cell with lower and upper frequencies sampled 
              from normal distribution
     """
@@ -58,16 +95,18 @@ def generate_cone_cell(mu: float, sigma: float) -> ConeCell:
     f2 = np.random.normal(mu, sigma)
     lower = min(f1, f2)
     upper = max(f1, f2)
-    return ConeCell(lower_frequency=lower, upper_frequency=upper)
+    living = np.random.random() > chance_dead
+    return ConeCell(lower_frequency=lower, upper_frequency=upper, living=living)
 
 
-def generate_cone_cells(num: int, mu: float, sigma: float) -> list[ConeCell]:
+def generate_cone_cells(num: int, mu: float, sigma: float, chance_dead: float=0) -> list[ConeCell]:
     """
     Generates multiple single cone cells
 
     :param num: number of cone cells to generate
     :param mu: mean of normal distribution to sample from
     :param sigma: standard deviation of normal distribution to sample from
+    :param chance_dead: probability [0, 1] the generated cell is dead on creation
     :return: list of cone cells
     """
     cells = []
