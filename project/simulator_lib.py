@@ -23,11 +23,11 @@ assert(PERCENT_GREEN + PERCENT_RED + PERCENT_BLUE == 1)
 
 class ConeCell:
     """
-    Simulates a cone cell that activates between lower and upper frequency
+    Simulates a cone cell that activates between lower and upper wavelength
     """
-    def __init__(self, lower_frequency: float, upper_frequency: float):
-        self.lower_frequency = lower_frequency
-        self.upper_frequency = upper_frequency
+    def __init__(self, lower_wavelength: float, upper_wavelength: float):
+        self.lower_wavelength = lower_wavelength
+        self.upper_wavelength = upper_wavelength
 
     def plot_range(self, axis):
         axis.plot()
@@ -51,14 +51,14 @@ def generate_cone_cell(mu: float, sigma: float) -> ConeCell:
 
     :param mu: mean of normal distribution to sample from
     :param sigma: standard deviation of normal distribution to sample from
-    :return: the generated cone cell with lower and upper frequencies sampled 
+    :return: the generated cone cell with lower and upper wavelengths sampled 
              from normal distribution
     """
     f1 = np.random.normal(mu, sigma)
     f2 = np.random.normal(mu, sigma)
     lower = min(f1, f2)
     upper = max(f1, f2)
-    return ConeCell(lower_frequency=lower, upper_frequency=upper)
+    return ConeCell(lower_wavelength=lower, upper_wavelength=upper)
 
 
 def generate_cone_cells(num: int, mu: float, sigma: float) -> list[ConeCell]:
@@ -76,43 +76,43 @@ def generate_cone_cells(num: int, mu: float, sigma: float) -> list[ConeCell]:
     return cells
 
 
-def generate_plotting_data(cells: list[ConeCell], min_freq: float, max_freq: float, delta_freq: float):
+def generate_plotting_data(cells: list[ConeCell], min_wavelength: float, max_wavelength: float, delta_wavelength: float):
     """
     Generates plotting data for the cells
 
     :param cells: list of cone cells to generate plotting data for
-    :param min_freq: the minimum frequency on the graph
-    :param max_freq: the maximum frequency on the graph
-    :param delta_freq: step size between frequencies
-    :return: tuple containing two lists. First list contains the frequencies and second
-             list contains the number of cells that activate for that frequency
+    :param min_wavelength: the minimum wavelength on the graph
+    :param max_wavelength: the maximum wavelength on the graph
+    :param delta_wavelength: step size between wavelengths
+    :return: tuple containing two lists. First list contains the wavelengths and second
+             list contains the number of cells that activate for that wavelength
     """
-    num_freq = int((max_freq - min_freq) / delta_freq)
-    freqs = np.ndarray(shape=num_freq)
-    counts = np.ndarray(shape=num_freq)
-    for i in range(num_freq):
-        freq = min_freq + (i * delta_freq)
+    num_wavelength = int((max_wavelength - min_wavelength) / delta_wavelength)
+    wavelengths = np.ndarray(shape=num_wavelength)
+    counts = np.ndarray(shape=num_wavelength)
+    for i in range(num_wavelength):
+        wavelength = min_wavelength + (i * delta_wavelength)
         count = 0
-        freqs[i] = freq
+        wavelengths[i] = wavelength
         for cell in cells:
-            if cell.lower_frequency <= freq and cell.upper_frequency >= freq:
+            if cell.lower_wavelength <= wavelength and cell.upper_wavelength >= wavelength:
                 count += 1
         counts[i] = count
-    return (freqs, counts)
+    return (wavelengths, counts)
 
 
-def get_cell_responses(cells: list[ConeCell], frequency: float):
+def get_cell_responses(cells: list[ConeCell], wavelength: float):
     """
-    Get the responses of all cells for frequency
+    Get the responses of all cells for wavelength
 
-    :param cells: the cells to see if activate for frequency
-    :param frequency: the frequency to test
+    :param cells: the cells to see if activate for wavelength
+    :param wavelength: the wavelength to test
     :return: numpy array with 1 if cell activates and 0 if it doesn't
     """
     responses = np.zeros(shape=len(cells))
     i = 0
     for cell in cells:
-        if cell.lower_frequency <= frequency and cell.upper_frequency >= frequency:
+        if cell.lower_wavelength <= wavelength and cell.upper_wavelength >= wavelength:
             responses[i] = 1
         else:
             responses[i] = 0
@@ -120,47 +120,47 @@ def get_cell_responses(cells: list[ConeCell], frequency: float):
     return responses
 
 
-def freq_to_color(freq: float) -> Color:
+def wavelength_to_color(wavelength: float) -> Color:
     """
-    Convert frequency of light into color using binning
+    Convert wavelength of light into color using binning
 
-    :param freq: frequency of light
-    :return: color associated with the frequency
+    :param wavelength: wavelength of light
+    :return: color associated with the wavelength
     """
-    if freq < 450:
+    if wavelength < 450:
         return Color.VIOLET
-    elif freq < 495:
+    elif wavelength < 495:
         return Color.BLUE
-    elif freq < 570:
+    elif wavelength < 570:
         return Color.GREEN
-    elif freq < 590:
+    elif wavelength < 590:
         return Color.YELLOW
-    elif freq < 620:
+    elif wavelength < 620:
         return Color.ORANGE
     else:
         return Color.RED
 
 
-def sample_frequencies(num_data_points, cells, min_freq, max_freq):
+def sample_wavelengths(num_data_points, cells, min_wl, max_wl):
     """
-    Generates result of sampling cells at multiple frequencies
-    Frequencies are randomly taken from a uniform distribution
+    Generates result of sampling cells at multiple wavelengths
+    Wavelengths are randomly taken from a uniform distribution
 
-    :param num_data_points: the number of frequencies to sample at
+    :param num_data_points: the number of wavelengths to sample at
     :param cells: the cells to use
-    :param min_freq: the minimum frequency to sample from
-    :param max_freq: the maximum frequency to sample at
+    :param min_wl: the minimum wavelength to sample from
+    :param max_wl: the maximum wavelength to sample at
     :return: a tuple where the first element is an array containing
              the results of each sample and the second element is an
-             array containing the color corresponding with the frequency
+             array containing the color corresponding with the wavelength
              used
     """
     data = np.ndarray(shape=(num_data_points, len(cells)))
-    freqs = np.random.uniform(low=min_freq, high=max_freq, size=num_data_points)
-    classified_freqs = []
+    wavelengths = np.random.uniform(low=min_wl, high=max_wl, size=num_data_points)
+    classified_wavelengths = []
     i = 0
-    for freq in freqs:
-        data[i] = get_cell_responses(cells, freq)
-        classified_freqs.append(freq_to_color(freq))
+    for wavelength in wavelengths:
+        data[i] = get_cell_responses(cells, wavelength)
+        classified_wavelengths.append(wavelength_to_color(wavelength))
         i += 1
-    return data, classified_freqs
+    return data, classified_wavelengths
