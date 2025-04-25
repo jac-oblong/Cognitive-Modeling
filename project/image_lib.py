@@ -48,16 +48,16 @@ def array_to_image(colors: np.array) -> Image:
     """
 
     # each color is put in a 10x10 box of pixels
-    # maximum of 500 pixels across (50 colors)
+    # maximum of 200 pixels across (20 colors)
 
-    num_cols = min(500, colors.shape[0]*10)
-    num_rows = ceil(colors.shape[0] / 50) * 10
+    num_cols = min(200, colors.shape[0]*10)
+    num_rows = ceil(colors.shape[0] / 20) * 10
 
     pixels = np.zeros(shape=(num_rows, num_cols, 3), dtype=np.uint8)
     for ind, color in enumerate(colors):
         pixel = color_to_rgb(color)
-        x = int(ind / 50) * 10
-        y = int(ind % 50) * 10
+        x = int(ind / 20) * 10
+        y = int(ind % 20) * 10
         for i in range(10):
             for j in range(10):
                 pixels[x + i][y + j] = pixel
