@@ -54,9 +54,9 @@ class ConeCell:
     """
     Simulates a cone cell that activates between lower and upper wavelength
     """
-    def __init__(self, lower_frequency: float, upper_frequency: float, living: bool=True):
-        self.lower_frequency = lower_frequency  # lowest frequency of light that activates this cell
-        self.upper_frequency = upper_frequency  # highest frequency of light that actvates this cell
+    def __init__(self, lower_wavelength: float, upper_wavelength: float, living: bool=True):
+        self.lower_wavelength = lower_wavelength  # lowest wavelength of light that activates this cell
+        self.upper_wavelength = upper_wavelength  # highest wavelength of light that actvates this cell
         self.living = living                    # if the cell is alive (i.e. can activate)
 
     def kill_cell(self):
@@ -96,7 +96,7 @@ def generate_cone_cell(mu: float, sigma: float, chance_dead: float=0) -> ConeCel
     lower = min(f1, f2)
     upper = max(f1, f2)
     living = np.random.random() > chance_dead
-    return ConeCell(lower_frequency=lower, upper_frequency=upper, living=living)
+    return ConeCell(lower_wavelength=lower, upper_wavelength=upper, living=living)
 
 
 def generate_cone_cells(num: int, mu: float, sigma: float, chance_dead: float=0) -> list[ConeCell]:
@@ -111,7 +111,7 @@ def generate_cone_cells(num: int, mu: float, sigma: float, chance_dead: float=0)
     """
     cells = []
     for _ in range(num):
-        cells.append(generate_cone_cell(mu, sigma))
+        cells.append(generate_cone_cell(mu, sigma, chance_dead))
     return cells
 
 
