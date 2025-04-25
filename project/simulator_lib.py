@@ -3,7 +3,7 @@ Holds all classes and generating functions used by the simulator and model
 """
 
 import numpy as np
-from enum import IntEnum
+from enum import Enum
 
 # Peak (mu) values vary person to person,
 #   use a uniform distribution to get a mu for a particular person
@@ -69,16 +69,16 @@ class ConeCell:
         axis.plot()
 
 
-class Color(IntEnum):
+class Color(Enum):
     """
     Enum for colors
     """
-    VIOLET = 0
-    BLUE = 1
-    GREEN = 2
-    YELLOW = 3
-    ORANGE = 4
-    RED = 5
+    VIOLET = {"min": 380, "max": 450, "val": 0}
+    BLUE = {"min": 450, "max": 495, "val": 1}
+    GREEN = {"min": 495, "max": 570, "val": 2}
+    YELLOW = {"min": 570, "max": 590, "val": 3}
+    ORANGE = {"min": 590, "max": 620, "val": 4}
+    RED = {"min": 620, "max": 750, "val": 5}
 
 
 def generate_cone_cell(mu: float, sigma: float, chance_dead: float=0) -> ConeCell:
@@ -166,40 +166,26 @@ def wavelength_to_color(wavelength: float) -> Color:
     :param wavelength: wavelength of light
     :return: color associated with the wavelength
     """
-    if wavelength < 450:
-        return Color.VIOLET
-    elif wavelength < 495:
-        return Color.BLUE
-    elif wavelength < 570:
-        return Color.GREEN
-    elif wavelength < 590:
-        return Color.YELLOW
-    elif wavelength < 620:
-        return Color.ORANGE
-    else:
-        return Color.RED
+    for color in Color:
+        if color["min"] <= wavelength and wavelength <= color["max"]:
+            return color
 
 
-def sample_wavelengths(num_data_points, cells, min_wl, max_wl):
+def sample_wavelengths(num_data_points, cells):
     """
     Generates result of sampling cells at multiple wavelengths
     Wavelengths are randomly taken from a uniform distribution
 
     :param num_data_points: the number of wavelengths to sample at
     :param cells: the cells to use
-    :param min_wl: the minimum wavelength to sample from
-    :param max_wl: the maximum wavelength to sample at
     :return: a tuple where the first element is an array containing
              the results of each sample and the second element is an
              array containing the color corresponding with the wavelength
              used
     """
     data = np.ndarray(shape=(num_data_points, len(cells)))
-    wavelengths = np.random.uniform(low=min_wl, high=max_wl, size=num_data_points)
-    classified_wavelengths = []
-    i = 0
-    for wavelength in wavelengths:
+    colors = np.random.choice(Color, size=num_data_points)
+    for i, color in enumerate(colors):
+        wavelength = np.random.uniform(low=color.value["min"], high=color.value["max"])
         data[i] = get_cell_responses(cells, wavelength)
-        classified_wavelengths.append(wavelength_to_color(wavelength))
-        i += 1
-    return data, classified_wavelengths
+    return data, [c.value["val"] for c in colors]
