@@ -5,6 +5,19 @@ from PIL import Image
 
 from simulator_lib import *
 
+flower = [
+    [Color.VIOLET.value["val"], Color.VIOLET.value["val"], Color.VIOLET.value["val"], Color.VIOLET.value["val"], Color.VIOLET.value["val"], Color.VIOLET.value["val"], Color.VIOLET.value["val"], Color.VIOLET.value["val"], Color.VIOLET.value["val"], Color.VIOLET.value["val"]],
+    [Color.VIOLET.value["val"], Color.BLUE.value["val"], Color.BLUE.value["val"], Color.BLUE.value["val"], Color.BLUE.value["val"], Color.BLUE.value["val"], Color.BLUE.value["val"], Color.BLUE.value["val"], Color.BLUE.value["val"], Color.VIOLET.value["val"]],
+    [Color.BLUE.value["val"], Color.BLUE.value["val"], Color.BLUE.value["val"], Color.BLUE.value["val"], Color.BLUE.value["val"], Color.ORANGE.value["val"], Color.BLUE.value["val"], Color.BLUE.value["val"], Color.BLUE.value["val"], Color.BLUE.value["val"]],
+    [Color.BLUE.value["val"], Color.BLUE.value["val"], Color.RED.value["val"], Color.BLUE.value["val"], Color.ORANGE.value["val"], Color.ORANGE.value["val"], Color.ORANGE.value["val"], Color.BLUE.value["val"], Color.YELLOW.value["val"], Color.BLUE.value["val"]],
+    [Color.BLUE.value["val"], Color.RED.value["val"], Color.RED.value["val"], Color.RED.value["val"], Color.BLUE.value["val"], Color.GREEN.value["val"], Color.BLUE.value["val"], Color.YELLOW.value["val"], Color.YELLOW.value["val"], Color.YELLOW.value["val"]],
+    [Color.BLUE.value["val"], Color.BLUE.value["val"], Color.GREEN.value["val"], Color.BLUE.value["val"], Color.BLUE.value["val"], Color.GREEN.value["val"], Color.BLUE.value["val"], Color.BLUE.value["val"], Color.GREEN.value["val"], Color.BLUE.value["val"]],
+    [Color.BLUE.value["val"], Color.BLUE.value["val"], Color.BLUE.value["val"], Color.GREEN.value["val"], Color.GREEN.value["val"], Color.GREEN.value["val"], Color.BLUE.value["val"], Color.GREEN.value["val"], Color.BLUE.value["val"], Color.BLUE.value["val"]],
+    [Color.BLUE.value["val"], Color.BLUE.value["val"], Color.BLUE.value["val"], Color.BLUE.value["val"], Color.BLUE.value["val"], Color.GREEN.value["val"], Color.GREEN.value["val"], Color.BLUE.value["val"], Color.BLUE.value["val"], Color.BLUE.value["val"]],
+    [Color.BLUE.value["val"], Color.BLUE.value["val"], Color.BLUE.value["val"], Color.BLUE.value["val"], Color.BLUE.value["val"], Color.GREEN.value["val"], Color.BLUE.value["val"], Color.BLUE.value["val"], Color.BLUE.value["val"], Color.BLUE.value["val"]],
+    [Color.GREEN.value["val"], Color.GREEN.value["val"], Color.GREEN.value["val"], Color.GREEN.value["val"], Color.GREEN.value["val"], Color.GREEN.value["val"], Color.GREEN.value["val"], Color.GREEN.value["val"], Color.GREEN.value["val"], Color.GREEN.value["val"]]
+]
+
 def color_to_rgb(color: Color) -> np.array:
     """
     Converts a color to the associated pixel value
