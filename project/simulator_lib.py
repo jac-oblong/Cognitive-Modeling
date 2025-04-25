@@ -149,13 +149,13 @@ def get_cell_responses(cells: list[ConeCell], wavelength: float):
     :return: numpy array with 1 if cell activates and 0 if it doesn't
     """
     responses = np.zeros(shape=len(cells))
-    i = 0
-    for cell in cells:
-        if cell.lower_wavelength <= wavelength and cell.upper_wavelength >= wavelength:
+    for i, cell in enumerate(cells):
+        if not cell.living:
+            responses[i] = 0
+        elif cell.lower_wavelength <= wavelength and cell.upper_wavelength >= wavelength:
             responses[i] = 1
         else:
             responses[i] = 0
-        i += 1
     return responses
 
 
