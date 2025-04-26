@@ -6,7 +6,8 @@
 - `simulator_lib.py` - Functions for simulating cone cells
 - `simulator.ipynb` - Examples of using the simulation library
 - `data/` - saved cone cells of various eye types
-- `imgs` - visualization images of model performance
+- `imgs/` - visualization images of model performance
+- `report/` - LaTeX for report
 
 # How to use
 1. Make any configurations of `simulator_lib.py` constants (if desired, the current values are what we've seen as scientifically plausible)
