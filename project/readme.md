@@ -8,3 +8,7 @@
 - `data/` - saved cone cells of various eye types
 - `imgs` - visualization images of model performance
 
+# How to use
+1. Make any configurations of `simulator_lib.py` constants (if desired, the current values are what we've seen as scientifically plausible)
+2. Make any configuration in `model.ipynb`
+3. Run through `model.ipynb` 
