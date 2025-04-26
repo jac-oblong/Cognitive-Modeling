@@ -5,6 +5,7 @@ from PIL import Image
 
 from simulator_lib import *
 
+# example image used for visualization
 FLOWER = [
     [Color.VIOLET, Color.VIOLET, Color.VIOLET, Color.VIOLET, Color.VIOLET, Color.VIOLET, Color.VIOLET, Color.VIOLET, Color.VIOLET, Color.VIOLET],
     [Color.VIOLET, Color.BLUE, Color.BLUE, Color.BLUE, Color.BLUE, Color.BLUE, Color.BLUE, Color.BLUE, Color.BLUE, Color.VIOLET],
